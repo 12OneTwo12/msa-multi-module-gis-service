@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: local
+  config:
+    import: "optional:configserver:http://127.0.0.1:8888"
+  cloud:
+    config:
+      name: discovery-service
+      profile: local
+  application:
+    name: discovery-service
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    leaseRenewalIntervalInSeconds: 5
