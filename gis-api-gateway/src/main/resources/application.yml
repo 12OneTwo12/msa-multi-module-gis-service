@@ -27,10 +27,10 @@ spring:
             postLogger: true
       routes:
 
-        - id: user-service
-          uri: lb://PLACE-SERVICE
+        - id: estate-service
+          uri: lb://ESTATE-SERVICE
           predicates:
-            - Path=/place-service/**
+            - Path=/estate-service/**
           filters:
             - name: LoggingFilter
               args:
