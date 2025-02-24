@@ -4,4 +4,4 @@ plugins {
 rootProject.name = 'multi-module-gis-service'
 include 'gis-api-gateway'
 include 'discovery-service'
-
+include 'estate-service'
