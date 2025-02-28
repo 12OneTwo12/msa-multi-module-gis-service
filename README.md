@@ -7,9 +7,8 @@
 
 ## **📝 Overview**  
 This repository is a sandbox project for exploring and experimenting with:  
-- **Microservices Architecture (MSA) with Spring Cloud**  
+- **Microservices Architecture (MSA) with Spring Cloud, Java, Kotlin**  
 - **Spatial data processing and GIS-related functionalities**  
-- **Code coverage analysis with JaCoCo**  
 
 The project is **not production-ready** but serves as a learning resource for integrating different technologies in an MSA environment.  
 
