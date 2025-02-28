@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintViolationException
 import jakarta.validation.Validation
 import jakarta.validation.Validator
 
-abstract class SelfValidating<T> protected constructor() {
+abstract class SelfValidating<T>(private val clazz: Class<T>) {
     private val validator: Validator
 
     init {
@@ -13,9 +13,17 @@ abstract class SelfValidating<T> protected constructor() {
     }
 
     protected fun validateSelf() {
-        val violations = validator.validate(this as T)
-        if (violations.isNotEmpty()) {
-            throw ConstraintViolationException(violations)
+        when {
+            !clazz.isInstance(this) -> {
+                throw IllegalArgumentException("Invalid type: expected ${clazz.simpleName}, but got ${this::class.simpleName}")
+            }
+
+            else -> {
+                val violations = validator.validate(clazz.cast(this))
+                if (violations.isNotEmpty()) {
+                    throw ConstraintViolationException(violations)
+                }
+            }
         }
     }
 }
