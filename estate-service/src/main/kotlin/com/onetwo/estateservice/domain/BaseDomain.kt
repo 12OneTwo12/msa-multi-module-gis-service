@@ -23,7 +23,7 @@ open class BaseDomain(
     fun delete(requestUserId: String = this.createdBy) {
         this.state = GlobalStatus.PERSISTENCE_DELETED
         this.updatedAt = Instant.now()
-        this.updatedBy = this.createdBy
+        this.updatedBy = requestUserId
     }
 
     val isDeleted: Boolean
