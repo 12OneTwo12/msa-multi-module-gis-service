@@ -16,10 +16,21 @@ The project is **not production-ready** but serves as a learning resource for in
 ---
 
 ## **🚀 Technologies Applied**  
-✅ **Spring Cloud** (Eureka, Gateway)  
-✅ **Spatial Data Processing** (H2GIS, PostGIS, JTS, etc.)  
-✅ **JaCoCo** (Code coverage measurement)  
-✅ **GitHub Actions** (CI/CD pipeline setup)  
+- [x] **Java**
+- [x] **Kotlin**
+- [x] **Hexagonal Architecture**
+- [x] **Spring Cloud**
+- [ ] **Config Server**
+- [ ] **Spring Batch**
+- [ ] **gRPC**
+- [ ] **Redis**
+- [ ] **Kafka**
+- [ ] **CQRS**
+- [ ] **Docker**
+- [ ] **Kubernetes**
+- [x] **Spatial Data Processing** (H2GIS, PostGIS, JTS, etc.)
+- [x] **JaCoCo** (Code coverage measurement)
+- [x] **GitHub Actions** (CI/CD pipeline setup)  
 
 ---
 
