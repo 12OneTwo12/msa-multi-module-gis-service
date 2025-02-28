@@ -2,6 +2,45 @@ server:
   port: 0
 
 spring:
+  profiles:
+    active: local
+  application:
+    name: estate-service
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      schema-locations: classpath:sql/h2gis-setting.sql
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+    healthcheck:
+      enabled: false
+  server:
+    enable-self-preservation: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
   application:
     name: estate-service
   datasource:
@@ -29,3 +68,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+server:
+  port: 0

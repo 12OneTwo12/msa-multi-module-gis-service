@@ -7,7 +7,7 @@ data class GetEstatesByCoordinateCommand(
     val minY: Double,
     val maxX: Double,
     val maxY: Double
-) : SelfValidating<GetEstatesByCoordinateCommand>() {
+) : SelfValidating<GetEstatesByCoordinateCommand>(GetEstatesByCoordinateCommand::class.java) {
     init {
         this.validateSelf()
     }

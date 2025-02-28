@@ -1,11 +1,8 @@
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
 
 spring:
   profiles:
@@ -37,6 +34,51 @@ spring:
                 baseMessage: Spring Cloud Gateway LoggingFilter
                 preLogger: true
                 postLogger: true
+
+server:
+  port: 8000
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: "optional:configserver:http://127.0.0.1:8888"
+  application:
+    name: gis-api-gateway-service
+  cloud:
+    config:
+      name: gis-api-gateway-service
+      profile: local
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
+      routes:
+
+        - id: estate-service
+          uri: lb://ESTATE-SERVICE
+          predicates:
+            - Path=/estate-service/**
+          filters:
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
 
 server:
   port: 8000
