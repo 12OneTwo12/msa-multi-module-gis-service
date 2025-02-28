@@ -19,6 +19,9 @@ The project is **not production-ready** but serves as a learning resource for in
 - [x] **Kotlin**
 - [x] **Hexagonal Architecture**
 - [x] **Spring Cloud**
+- [x] **JPA**
+- [ ] **jooq**
+- [ ] **Snowflake**
 - [ ] **Config Server**
 - [ ] **Spring Batch**
 - [ ] **gRPC**
