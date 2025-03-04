@@ -15,12 +15,14 @@ The project is **not production-ready** but serves as a learning resource for in
 ---
 
 ## **🚀 Technologies Applied**  
+- [x] **Spatial Data Processing** (H2GIS, PostGIS, JTS, etc.)
 - [x] **Java**
 - [x] **Kotlin**
 - [x] **Hexagonal Architecture**
 - [x] **Spring Cloud**
 - [x] **JPA**
 - [ ] **jooq**
+- [ ] **MongoDB**
 - [ ] **Snowflake**
 - [ ] **Config Server**
 - [ ] **Spring Batch**
@@ -30,7 +32,6 @@ The project is **not production-ready** but serves as a learning resource for in
 - [ ] **CQRS**
 - [ ] **Docker**
 - [ ] **Kubernetes**
-- [x] **Spatial Data Processing** (H2GIS, PostGIS, JTS, etc.)
 - [x] **JaCoCo** (Code coverage measurement)
 - [x] **GitHub Actions** (CI/CD pipeline setup)  
 
