@@ -34,6 +34,15 @@ jobs:
             exit 1
           fi
           
+          echo "Checking review-service Jacoco Test Report:"
+          if [ -f review-service/build/reports/jacoco/test/jacocoTestReport.xml ]; then
+            echo "review-service Jacoco Test Report exists"
+            ls -l review-service/build/reports/jacoco/test/
+          else
+            echo "review-server Jacoco Test Report does not exist"
+            exit 1
+          fi
+          
           # echo "Checking discovery-service Jacoco Test Report:"
           # if [ -f discovery-service/build/reports/jacoco/test/jacocoTestReport.xml ]; then
           #   echo "discovery-service Jacoco Test Report exists"
@@ -74,7 +83,8 @@ jobs:
           paths: |
             # ${{ github.workspace }}/discovery-service/build/reports/jacoco/test/jacocoTestReport.xml,
             # ${{ github.workspace }}/gis-api-gateway/build/reports/jacoco/test/jacocoTestReport.xml,
-            ${{ github.workspace }}/estate-service/build/reports/jacoco/test/jacocoTestReport.xml
+            ${{ github.workspace }}/estate-service/build/reports/jacoco/test/jacocoTestReport.xml,
+            ${{ github.workspace }}/review-service/build/reports/jacoco/test/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 50
           min-coverage-changed-files: 50

@@ -23,11 +23,20 @@ spring:
             preLogger: true
             postLogger: true
       routes:
-
         - id: estate-service
           uri: lb://ESTATE-SERVICE
           predicates:
             - Path=/estate-service/**
+          filters:
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+        - id: review-service
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/review-service/**
           filters:
             - name: LoggingFilter
               args:
@@ -59,11 +68,20 @@ spring:
             preLogger: true
             postLogger: true
       routes:
-
         - id: estate-service
           uri: lb://ESTATE-SERVICE
           predicates:
             - Path=/estate-service/**
+          filters:
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+        - id: review-service
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/review-service/**
           filters:
             - name: LoggingFilter
               args:
