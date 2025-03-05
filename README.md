@@ -21,7 +21,7 @@ The project is **not production-ready** but serves as a learning resource for in
 - [x] **Hexagonal Architecture**
 - [x] **Spring Cloud**
 - [x] **JPA**
-- [ ] **jooq**
+- [x] **jooq**
 - [ ] **MongoDB**
 - [ ] **Snowflake**
 - [ ] **Config Server**
