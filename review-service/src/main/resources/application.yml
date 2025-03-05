@@ -1,0 +1,57 @@
+server:
+  port: 0
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: review-service
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      schema-locations: classpath:sql/create-table-sql.sql
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+    healthcheck:
+      enabled: false
+  server:
+    enable-self-preservation: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: review-service
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      schema-locations: classpath:sql/create-table-sql.sql
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+server:
+  port: 0
